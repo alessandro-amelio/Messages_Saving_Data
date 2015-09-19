@@ -1,0 +1,1090 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20150919173549)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "messages" already exists: CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20150919173549)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "messages" already exists: CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMessages (20150919173549)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150919173549"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "We're at the beach so you should meet us here! I make a mean sandcastle. :)"], ["created_at", "2015-09-19 17:40:55.077027"], ["updated_at", "2015-09-19 17:40:55.077027"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "messages" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "Let's meet there!"], ["created_at", "2015-09-19 17:40:55.082137"], ["updated_at", "2015-09-19 17:40:55.082137"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/messages?nonce=1442684674226" for 191.255.2.99 at 2015-09-19 13:44:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442684674226"}
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 624ms (Views: 612.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:44:38 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:44:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:44:40 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:44:40 -0400
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:44:40 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:44:40 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:44:40 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:44:41 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (33.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:44:41 -0400
+
+
+Started GET "/messages?nonce=1442684706154" for 191.255.2.99 at 2015-09-19 13:45:06 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442684706154"}
+  [1m[36mMessage Load (59.5ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (404.4ms)
+Completed 200 OK in 4165ms (Views: 4060.8ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:45:11 -0400
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:45:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:45:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:45:12 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:45:12 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:45:12 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:45:12 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (29.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (32.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (255.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:45:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:45:14 -0400
+
+
+Started GET "/messages?nonce=1442684762211" for 191.255.2.99 at 2015-09-19 13:46:04 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442684762211"}
+  [1m[35mMessage Load (35.7ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (637.0ms)
+Completed 200 OK in 5959ms (Views: 5725.8ms | ActiveRecord: 86.4ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:46:14 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:46:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:15 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:15 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:46:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:18 -0400
+
+
+Started GET "/messages?nonce=1442684800696" for 191.255.2.99 at 2015-09-19 13:46:41 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442684800696"}
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:46:41 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:46:41 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:41 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:41 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:42 -0400
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:42 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:43 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:46:43 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.4ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:46:44 -0400
+
+
+Started GET "/messages?nonce=1442684822264" for 191.255.2.99 at 2015-09-19 13:47:03 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442684822264"}
+  [1m[35mMessage Load (0.5ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (104.8ms)
+Completed 200 OK in 7994ms (Views: 582.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:47:16 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.6ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:18 -0400
+
+
+Started GET "/messages?nonce=1442684847277" for 191.255.2.99 at 2015-09-19 13:47:27 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442684847277"}
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:47:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:47:28 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:28 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:28 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:28 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:28 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:47:29 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (16.5ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:47:33 -0400
+
+
+Started GET "/messages?nonce=1442685000330" for 191.255.2.99 at 2015-09-19 13:50:06 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685000330"}
+  [1m[35mMessage Load (32.7ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (668.5ms)
+Completed 200 OK in 4119ms (Views: 3878.0ms | ActiveRecord: 124.6ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:13 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:14 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:14 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:50:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (104.8ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:18 -0400
+
+
+Started GET "/messages?nonce=1442685029136" for 191.255.2.99 at 2015-09-19 13:50:29 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685029136"}
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 75ms (Views: 72.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:30 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:31 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:31 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:50:31 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.6ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:31 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:32 -0400
+
+
+Started GET "/messages?nonce=1442685036464" for 191.255.2.99 at 2015-09-19 13:50:36 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685036464"}
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:37 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:38 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:50:38 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.1ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:38 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:39 -0400
+
+
+Started GET "/messages/new" for 191.255.2.99 at 2015-09-19 13:50:41 -0400
+Processing by MessagesController#new as HTML
+  Rendered messages/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 87ms (Views: 86.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for 191.255.2.99 at 2015-09-19 13:50:43 -0400
+Processing by MessagesController#new as HTML
+  Rendered messages/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:43 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:43 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:44 -0400
+
+
+Started GET "/messages/communication.js" for 191.255.2.99 at 2015-09-19 13:50:44 -0400
+
+ActionController::RoutingError (No route matches [GET] "/messages/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.2ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:44 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:45 -0400
+
+
+Started POST "/messages" for 191.255.2.99 at 2015-09-19 13:50:50 -0400
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S4FZu9ZS7GUDem7ubfZYlw/w5UgzLeKXWOBKki2U7cs=", "message"=>{"content"=>"kkkkk"}, "commit"=>"Create"}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "messages" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "kkkkk"], ["created_at", "2015-09-19 17:50:50.226082"], ["updated_at", "2015-09-19 17:50:50.226082"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://localhost:8080/messages
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/messages" for 191.255.2.99 at 2015-09-19 13:50:50 -0400
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 66ms (Views: 65.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:51 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:51 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:52 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:50:52 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (40.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (54.9ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:52 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:54 -0400
+
+
+Started GET "/messages" for 191.255.2.99 at 2015-09-19 13:50:55 -0400
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 38ms (Views: 37.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:50:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:55 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:56 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:50:56 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.9ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:57 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:50:58 -0400
+
+
+Started GET "/messages?nonce=1442685070968" for 191.255.2.99 at 2015-09-19 13:51:11 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685070968"}
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 356ms (Views: 347.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:51:12 -0400
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:51:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:13 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:13 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:51:13 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (48.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (63.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:14 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:14 -0400
+
+
+Started GET "/messages?nonce=1442685082991" for 191.255.2.99 at 2015-09-19 13:51:23 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685082991"}
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:51:24 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:51:24 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:24 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:24 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:24 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:24 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:51:25 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:25 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:51:26 -0400
+
+
+Started GET "/messages?nonce=1442685119768" for 191.255.2.99 at 2015-09-19 13:52:00 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685119768"}
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 64ms (Views: 63.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:52:00 -0400
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:52:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:00 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:52:01 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (97.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (229.3ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (232.8ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (4444.1ms)
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:06 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:07 -0400
+
+
+Started GET "/messages?nonce=1442685131560" for 191.255.2.99 at 2015-09-19 13:52:12 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"nonce"=>"1442685131560"}
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.erb within layouts/application (145.8ms)
+Completed 200 OK in 5559ms (Views: 5490.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 191.255.2.99 at 2015-09-19 13:52:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:18 -0400
+
+
+Started GET "/assets/messages.css?body=1" for 191.255.2.99 at 2015-09-19 13:52:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:19 -0400
+
+
+Started GET "/assets/messages.js?body=1" for 191.255.2.99 at 2015-09-19 13:52:19 -0400
+
+
+Started GET "/communication.js" for 191.255.2.99 at 2015-09-19 13:52:19 -0400
+
+ActionController::RoutingError (No route matches [GET] "/communication.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.9ms)
